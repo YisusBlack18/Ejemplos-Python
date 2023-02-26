@@ -11,9 +11,12 @@ def index():
     b=0
     r=0
     if request.method == "POST":
-        a = int(request.form["a"])
-        b = int(request.form["b"])
-        r = a+b
+        try:
+            a = int(request.form["a"])
+            b = int(request.form["b"])
+            r = a+b
+        except:
+            r = "No se puede"
     return render_template('./index.html',a=a,b=b,resultado=r)
 
 if __name__ == "__main__":
